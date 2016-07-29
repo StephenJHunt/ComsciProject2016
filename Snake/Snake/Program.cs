@@ -23,14 +23,24 @@ namespace Snake
 
         static void Restart()
         {
-
+            Thread.Sleep(1000);
+            thread.Suspend();
+            string s = Console.ReadLine();
+            if (s == "Y" || s == "y")
+            {
+                return;
+            }
+            else
+            {
+                Snake();
+            }
         }
 
         static void Main(string[] args)
         {
             Snake();
         }
-        static Thread thread = new Thread(Move);
+        static Thread thread = new Thread(Input);
         static List<Loc> snake = new List<Loc>();
         static string direction;
         static Loc star = new Loc(20, 16);
@@ -69,8 +79,15 @@ namespace Snake
             snake.Add(head);
             direction = "R";
             thread.IsBackground = true;
-            thread.Start();
-            Input();
+            if (thread.IsAlive == false)
+            {
+                thread.Start();
+            }
+            else
+            {
+                thread.Resume();
+            }
+            Move();
         }
 
         public static void Input()
