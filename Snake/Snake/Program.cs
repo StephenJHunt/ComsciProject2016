@@ -31,9 +31,31 @@ namespace Snake
         static List<Loc> snake = new List<Loc>();
         static string direction;
         static Loc star = new Loc(20, 16);
-        static string[] scoreboard = { "XXXX",
-                                       "X99X",
-                                       "XXXX"};
+        static string[] scoreboard = {
+        "XXXX                                                                            ",
+        "X99X                                                                            ",
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "X                                                                              X",
+        "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"};
                                         
         public static void Snake()
         {
@@ -88,7 +110,7 @@ namespace Snake
                         }
                         break;
                     case "U":
-                        if (next.Y > 4)
+                        if (next.Y > 3)
                         {
                             next.Y--;
                         }
@@ -101,7 +123,13 @@ namespace Snake
                         break;
                 }
                 Console.Clear();
-                
+
+                Console.SetCursorPosition(0, 0);
+                foreach (string s in scoreboard)
+                {
+                    Console.Write(s);
+                }
+
                 foreach (Loc loc in snake)
                 {
                     Console.SetCursorPosition(loc.X, loc.Y);
@@ -120,7 +148,7 @@ namespace Snake
                     {
                         Random ran = new Random();
                         star.X = ran.Next(0, 80);
-                        star.Y = ran.Next(4, 25);
+                        star.Y = ran.Next(3, 25);
 
                         foreach(Loc loc in snake)
                         {
@@ -138,10 +166,9 @@ namespace Snake
                 }
                 Console.SetCursorPosition(star.X, star.Y);
                 Console.Write("*");
-                Console.SetCursorPosition(0, 0);
-                foreach(string s in scoreboard)
+                if (scoreboard[next.Y][next.X] == 'X')
                 {
-                    Console.WriteLine(s);
+                    return;
                 }
                 Thread.Sleep(150);
             }
