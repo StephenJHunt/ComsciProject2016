@@ -21,13 +21,16 @@ namespace Snake
     class Program
     {
 
+        static void Restart()
+        {
+
+        }
+
         static void Main(string[] args)
         {
             Snake();
         }
-
-
-
+        static Thread thread = new Thread(Move);
         static List<Loc> snake = new List<Loc>();
         static string direction;
         static Loc star = new Loc(20, 16);
@@ -55,15 +58,16 @@ namespace Snake
         "X                                                                              X",
         "X                                                                              X",
         "X                                                                              X",
+        "X                                                                              X",
         "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"};
                                         
         public static void Snake()
         {
+            snake.Clear();
             Console.CursorVisible = false;
             Loc head = new Loc(40, 12);
             snake.Add(head);
             direction = "R";
-            Thread thread = new Thread(Move);
             thread.IsBackground = true;
             thread.Start();
             Input();
@@ -91,7 +95,16 @@ namespace Snake
 
         public static void Move()
         {
-            while (true)
+            bool run = true;
+            Console.WindowWidth = 80;
+            Console.WindowHeight = 26;
+            Loc last = new Loc();
+            Console.SetCursorPosition(0, 0);
+            foreach(string s in scoreboard)
+            {
+                Console.Write(s);
+            }
+            while (run)
             {
                 var next = snake[0];
 
@@ -122,21 +135,28 @@ namespace Snake
                         }
                         break;
                 }
-                Console.Clear();
+                //Console.Clear();
 
-                Console.SetCursorPosition(0, 0);
-                foreach (string s in scoreboard)
-                {
-                    Console.Write(s);
-                }
+                //Console.SetCursorPosition(0, 0);
+                //foreach (string s in scoreboard)
+                //{
+                //Console.Write(s);
+                //}
+
+                last = snake.Last();
+                Console.SetCursorPosition(last.X, last.Y);
+                Console.Write(" ");
+
+                Console.SetCursorPosition(next.X, next.Y);
+                Console.Write("x");
 
                 foreach (Loc loc in snake)
                 {
-                    Console.SetCursorPosition(loc.X, loc.Y);
-                    Console.Write("x");
+                    //Console.SetCursorPosition(loc.X, loc.Y);
+                    //Console.Write("x");
                     if (next.X == loc.X && next.Y == loc.Y)
                     {
-                        return;
+                        run = false;
                     }
                 }
                 snake.Insert(0, next);
@@ -149,6 +169,11 @@ namespace Snake
                         Random ran = new Random();
                         star.X = ran.Next(0, 80);
                         star.Y = ran.Next(3, 25);
+
+                        if (scoreboard[star.Y][star.X] == 'X')
+                        {
+                            continue;
+                        }
 
                         foreach(Loc loc in snake)
                         {
@@ -168,10 +193,12 @@ namespace Snake
                 Console.Write("*");
                 if (scoreboard[next.Y][next.X] == 'X')
                 {
-                    return;
+                    run = false;
                 }
+                Console.SetCursorPosition(30, 0);
                 Thread.Sleep(150);
             }
+            Restart();
         }
     }
 }
