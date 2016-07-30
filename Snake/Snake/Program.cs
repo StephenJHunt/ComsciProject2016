@@ -23,23 +23,23 @@ namespace Snake
 
         static void Restart()
         {
-            Thread.Sleep(1000);
             thread.Suspend();
+            Thread.Sleep(5000);
+            Console.Clear();
+            Console.WriteLine("Press y to try again");
             string s = Console.ReadLine();
-            if (s == "Y" || s == "y")
-            {
-                return;
-            }
-            else
+            if (s == "y")
             {
                 Snake();
             }
+
         }
 
         static void Main(string[] args)
         {
             Snake();
         }
+        static int score = 0;
         static Thread thread = new Thread(Input);
         static List<Loc> snake = new List<Loc>();
         static string direction;
@@ -69,10 +69,12 @@ namespace Snake
         "X                                                                              X",
         "X                                                                              X",
         "X                                                                              X",
+        "X                                                                              X",
         "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"};
                                         
         public static void Snake()
         {
+            score = 0;
             snake.Clear();
             Console.CursorVisible = false;
             Loc head = new Loc(40, 12);
@@ -180,6 +182,7 @@ namespace Snake
 
                 if (snake[0].X == star.X && snake[0].Y == star.Y)
                 {
+                    score++;
                     bool good = false;
                     while (good == false)
                     {
@@ -212,6 +215,12 @@ namespace Snake
                 {
                     run = false;
                 }
+
+                Console.SetCursorPosition(1, 1);
+                Console.Write((score / 10).ToString());
+                Console.SetCursorPosition(2, 1);
+                Console.Write((score % 10).ToString());
+
                 Console.SetCursorPosition(30, 0);
                 Thread.Sleep(150);
             }
