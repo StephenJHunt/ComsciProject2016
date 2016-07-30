@@ -5,8 +5,58 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComsciProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="396.079" Width="570.098">
     <Grid>
-        
+        <Image x:Name="image" HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="562" Source="arcade84.jpg"/>
+        <Button x:Name="Snek" Content="Play Snake" HorizontalAlignment="Left" Margin="10,93,0,0" VerticalAlignment="Top" Width="96" Height="42">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFFEFE" Offset="0.007"/>
+                    <GradientStop Color="#FF31BB12" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="HighScores" Content="View High Scores" HorizontalAlignment="Left" Margin="216,93,0,0" VerticalAlignment="Top" Width="131" Height="42" Foreground="#FF170101">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="White" Offset="0"/>
+                    <GradientStop Color="#FFDCD320" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Label x:Name="Welcome" Content="&#x9;     Welcome To The Virtual Arcade!" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top" Width="542" FontStyle="Italic" FontWeight="Bold" Foreground="#FFE3F901" FontSize="20"/>
+        <Button x:Name="SpaceInvaders" Content="Play Space Invaders" HorizontalAlignment="Left" Margin="216,162,0,0" VerticalAlignment="Top" Width="131" Height="42">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFFEFE" Offset="0.007"/>
+                    <GradientStop Color="#FF31BB12" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Pong" Content="Play Pong" HorizontalAlignment="Left" Margin="456,162,0,0" VerticalAlignment="Top" Width="96" Height="42">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFFEFE" Offset="0.007"/>
+                    <GradientStop Color="#FF31BB12" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="Breakout" Content="Play Breakout" HorizontalAlignment="Left" Margin="456,93,0,0" VerticalAlignment="Top" Width="96" Height="42">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFFEFE" Offset="0.007"/>
+                    <GradientStop Color="#FF31BB12" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="PacMan" Content="Play Pacman" HorizontalAlignment="Left" Margin="10,162,0,0" VerticalAlignment="Top" Width="96" Height="42">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFFFFEFE" Offset="0.007"/>
+                    <GradientStop Color="#FF31BB12" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
     </Grid>
 </Window>
