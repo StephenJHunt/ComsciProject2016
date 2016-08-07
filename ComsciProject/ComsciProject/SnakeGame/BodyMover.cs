@@ -49,7 +49,7 @@ namespace ComsciProject.SnakeGame
                     switch (e.name)
                     {
                         case "Food":
-                            //food eating here
+                            Engine.Engine.Destroy(e);
                             break;
                         case "Wall":
                             //wall collision

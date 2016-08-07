@@ -55,7 +55,7 @@ namespace ComsciProject
             //        }
             //}
         }
-        public static MainWindow instance;
+        public static MainWindow instance;//FOR TETRIS: use left mouse for left rotation, right mouse for right rotation, middle to speed up
 
         private void Snek_Click(object sender, RoutedEventArgs e)
         {
