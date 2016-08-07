@@ -40,6 +40,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,9 +60,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Engine\Component.cs" />
     <Compile Include="Debug.cs" />
-    <Compile Include="Snake.cs" />
-    <Compile Include="SnakeGame.cs" />
+    <Compile Include="Engine\Engine.cs" />
+    <Compile Include="Engine\Entity.cs" />
+    <Compile Include="Engine\Input.cs" />
+    <Compile Include="Engine\Level.cs" />
+    <Compile Include="Engine\Position.cs" />
+    <Compile Include="SnakeGameDisplay.xaml.cs">
+      <DependentUpon>SnakeGameDisplay.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SnakeGame\BodyMover.cs" />
+    <Compile Include="SnakeGame\Food.cs" />
+    <Compile Include="SnakeGame\Snake.cs" />
+    <Compile Include="SnakeGame\SnakeHead.cs" />
+    <Compile Include="SnakeGame\SnakeWorld.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,6 +87,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SnakeGameDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

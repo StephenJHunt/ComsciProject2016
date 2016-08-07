@@ -21,48 +21,57 @@ namespace ComsciProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        Thread renderThread;
+        System.Windows.Threading.DispatcherTimer Timer;
         public MainWindow()
         {
             InitializeComponent();
             instance = this;
             KeyDown += MainWindow_KeyDown;
-            SnakeGame.StartGame();
-            renderThread = new Thread(Render);
-            renderThread.Start();
         }
+
         private void MainWindow_KeyDown(object sender, KeyEventArgs e)
         {
-            switch (e.Key)
-            {
-                case Key.Left:
-                    {
-                        SnakeGame.Input(0);
-                        break;
-                    }
-                case Key.Up:
-                    {
-                        SnakeGame.Input(1);
-                        break;
-                    }
-                case Key.Right:
-                    {
-                        SnakeGame.Input(2);
-                        break;
-                    }
-                case Key.Down:
-                    {
-                        SnakeGame.Input(3);
-                        break;
-                    }
-            }
+            //switch (e.Key)
+            //{
+            //    case Key.Left:
+            //        {
+            //            SnakeGame.Input(0);
+            //            break;
+            //        }
+            //    case Key.Up:
+            //        {
+            //            SnakeGame.Input(1);
+            //            break;
+            //        }
+            //    case Key.Right:
+            //        {
+            //            SnakeGame.Input(2);
+            //            break;
+            //        }
+            //    case Key.Down:
+            //        {
+            //            SnakeGame.Input(3);
+            //            break;
+            //        }
+            //}
         }
         public static MainWindow instance;
 
-        public void Render()
+        private void Snek_Click(object sender, RoutedEventArgs e)
         {
-            GameWindow.Content = SnakeGame.screen;
-            //Thread.Sleep(1000 / SnakeGame.updateRate);
+            SnakeGameDisplay display = new SnakeGameDisplay();
+            display.Show();
+            Timer = new System.Windows.Threading.DispatcherTimer();
+            Timer.Interval = TimeSpan.FromMilliseconds(100);
+            Timer.IsEnabled = true;
+            Timer.Tick += dispatcherTimer_Tick;
+            Engine.Engine.Initialize();
+        }
+
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            GameWindow.Content = Engine.Engine.LastFrame;
+            Engine.Engine.renderComplete = true;
         }
     }
 }
