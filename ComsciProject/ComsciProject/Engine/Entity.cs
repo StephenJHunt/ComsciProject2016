@@ -6,58 +6,99 @@ using System.Threading.Tasks;
 
 namespace ComsciProject.Engine
 {
-    public class Entity
+    /// <summary>
+    /// Describes a 'GameObject', an object which is present in the game world.
+    /// </summary>
+    public abstract class Entity
     {
-        protected Entity()
-        {
-            //Reserve the default constructor
-        }
-        public Entity(string name, char appearance, Position p)
-        {
-            this.name = name;
-            this.components = new List<Component>();
-            this.appearance = appearance;
-        }
-        public Entity(string name, List<Component> components, char appearance)
-        {
-            this.name = name;
-            this.components = components;
-            this.appearance = appearance;
-            foreach(Component c in components)
-            {
-                c.Initialise(this);//Need to call this to link entity to componenet
-            }
-        }
         /// <summary>
-        /// Entity's Position in WorldSpace
+        /// Unique Integer assigned by the Engine which identifies this Entity. 
         /// </summary>
-        public Position position;
+        public int instanceID;
         /// <summary>
-        /// List of components on an Entity. Adding to this list after an entity has been instantiated may cause unexpected behaviour
+        /// A short descriptive name for the object, this only serves to easily identify objects for debug
         /// </summary>
-        public List<Component> components;
-        public string name;
-        public void Init()
-        {
-            foreach(Component c in components)
-            {
-                c.Init();
-            }
-        }
-        public void Update()
-        {
-            foreach (Component c in components)
-            {
-                c.Update();
-            }
-        }
-        public void LateUpdate()
-        {
-            foreach (Component c in components)
-            {
-                c.LateUpdate();
-            }
-        }
+        public string descName;
+        /// <summary>
+        /// Describes Entity's position in the world space relative to the origin
+        /// </summary>
+        public Vector2 position;
+        /// <summary>
+        /// A character which will be displayed at the entity's position when the frame is rendered
+        /// </summary>
         public char appearance;
+        /// <summary>
+        /// If disabled an Entity will not receive any Init, Update, or LateUpdate calls
+        /// </summary>
+        public bool enabled = true;
+        /// <summary>
+        /// Dictates if an Entity has been 'destroyed', as references to it may persist even after being removed from the game world
+        /// </summary>
+        public bool destroyed = false;
+        #region Helper Methods
+        /// <summary>
+        /// Move the entity the specified Cartesian Vector
+        /// </summary>
+        /// <param name="translation">A Cartesian Vector describing the required translation</param>
+        public void Move(Vector2 translation)
+        {
+            position.x += translation.x;
+            position.y += translation.y;
+        }
+        /// <summary>
+        /// Simplification of Move(Vector2 translation)
+        /// </summary>
+        /// <param name="direction">Direction to move in</param>
+        /// <param name="distance">Distance in units to move</param>
+        public void MoveLinear(Direction direction, int distance)
+        {
+            switch(direction)
+            {
+                case Direction.Up:
+                    {
+                        position.y--;
+                        break;
+                    }
+                case Direction.Down:
+                    {
+                        position.y++;
+                        break;
+                    }
+                case Direction.Left:
+                    {
+                        position.y++;
+                        break;
+                    }
+                case Direction.Right:
+                    {
+                        position.x++;
+                        break;
+                    }
+            }
+        }
+        #endregion
+        #region MainThread Methods
+        /// <summary>
+        /// Called when the Entity is added to the game world
+        /// </summary>
+        public virtual void Init()
+        {
+
+        }
+        /// <summary>
+        /// Called every Frame
+        /// </summary>
+        public virtual void Update()
+        {
+            
+        }
+        /// <summary>
+        /// Called every frame after Update()
+        /// </summary>
+        public virtual void LateUpdate()
+        {
+           
+        }
+        #endregion
     }
 }
