@@ -133,7 +133,13 @@ namespace ComsciProject.Engine
             foreach (Entity e in currentLevel.entities)
             {
                 Debug.Log(e.instanceID + "("+e.descName+") being rendered");
-                worldRender[e.position.y][e.position.x] = e.appearance;
+                if(currentLevel.positionInBounds(new Vector2(e.position.x,e.position.y)))
+                    worldRender[e.position.y][e.position.x] = e.appearance;
+                else
+                {
+                    Debug.LogError("Cannot render object, is out of bounds (" +
+                        e.position.x + ", " + e.position.y + ")");
+                }
             }
             string finalRender = "";
             foreach (StringBuilder s in worldRender)
@@ -150,7 +156,8 @@ namespace ComsciProject.Engine
         private static void InitNewEntities()
         {
             //if there are entities to instantiate
-            if (currentLevel == null || entitiesToInstantiate == null || entitiesToInstantiate.Count == 0)
+            if (currentLevel == null || entitiesToInstantiate == null || 
+                entitiesToInstantiate.Count == 0)
                 return;
             while (entitiesToInstantiate.Count > 0 && entitiesToInstantiate?.Peek() != null)
             {

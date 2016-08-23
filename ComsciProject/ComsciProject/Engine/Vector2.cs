@@ -29,5 +29,9 @@ namespace ComsciProject.Engine
                 return true;
             return false;
         }
+        public int compareTo(Vector2 other)
+        {
+            return (this.x - other.x + this.y - other.y);
+        }
     }
 }
