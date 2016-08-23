@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ComsciProject.Engine;
 
-
+/*
 namespace ComsciProject.SnakeGame
 {
     public class DANKMEMEException : Exception
@@ -44,7 +44,7 @@ namespace ComsciProject.SnakeGame
             //SnakeHead movement
             foreach (Entity e in Engine.Engine.currentLevel.entities)
             {
-                if(Position.isEqual(entity.position, e.position)&& e != entity)
+                if(Vector2.isEqual(entity.position, e.position)&& e != entity)
                 {
                     switch (e.name)
                     {
@@ -72,3 +72,4 @@ namespace ComsciProject.SnakeGame
         }
     }
 }
+*/

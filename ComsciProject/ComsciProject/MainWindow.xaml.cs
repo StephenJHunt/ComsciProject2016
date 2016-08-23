@@ -56,21 +56,21 @@ namespace ComsciProject
             //}
         }
         public static MainWindow instance;//FOR TETRIS: use left mouse for left rotation, right mouse for right rotation, middle to speed up
-
+        private static SnakeGameDisplay display;
         private void Snek_Click(object sender, RoutedEventArgs e)
         {
-            SnakeGameDisplay display = new SnakeGameDisplay();
+            display = new SnakeGameDisplay();
             display.Show();
             Timer = new System.Windows.Threading.DispatcherTimer();
             Timer.Interval = TimeSpan.FromMilliseconds(100);
             Timer.IsEnabled = true;
             Timer.Tick += dispatcherTimer_Tick;
-            Engine.Engine.Initialize();
         }
 
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
-            GameWindow.Content = Engine.Engine.LastFrame;
+            display.Display.Content = Engine.Engine.LastFrame;
+            Debug.Log(display.Display.Content);
             Engine.Engine.renderComplete = true;
         }
     }
