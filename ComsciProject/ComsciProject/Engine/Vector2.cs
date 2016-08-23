@@ -22,7 +22,12 @@ namespace ComsciProject.Engine
         {
             return "(" + x + ", " + y + ")";
         }
-        public static Vector2 zero = new Vector2(0, 0);
+        public static readonly Vector2 zero = new Vector2(0, 0);
+        public static readonly Vector2 up = new Vector2(0, -1);
+        public static readonly Vector2 down = new Vector2(0, 1);
+        public static readonly Vector2 left = new Vector2(-1, 0);
+        public static readonly Vector2 right = new Vector2(1, 0);
+
         public static bool isEqual(Vector2 p1, Vector2 p2)
         {
             if (p1.x == p2.x && p1.y == p2.y)
