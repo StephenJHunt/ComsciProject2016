@@ -179,7 +179,7 @@ namespace ComsciProject.Engine
         /// <param name="e">The entity to add</param>
         /// <param name="p">The desired position of the entity</param>
         /// <returns>A reference to the entity -- NOTE: THE ENTITY IS NOT ADDED TO THE GAMEWORLD UNTIL THE START OF THE NEXT FRAME</returns>
-        public static Entity Instantiate(Entity e, Vector2 p)
+        public static Entity SpawnEntity(Entity e, Vector2 p)
         {
             //make sure the game world exists
             if (currentLevel != null)
