@@ -15,17 +15,20 @@ namespace ComsciProject.Engine
         {
             //Reserve it so only children can implement it publically
         }
+
         public Level(int xBoundry, int yBoundry)
         {
             this.xBoundry = xBoundry;
             this.yBoundry = yBoundry;
             entities = new List<Entity>();
         }
+
         public int xBoundry
         {
             get;
             protected set;
         }
+
         public int yBoundry
         {
             get;
@@ -34,6 +37,7 @@ namespace ComsciProject.Engine
         /// <summary>
         /// Creates all the entities needed for the first frame
         /// </summary>
+
         public virtual void InstantiateFirstFrameEntities()
         { }
         /// <summary>
@@ -41,6 +45,7 @@ namespace ComsciProject.Engine
         /// </summary>
         /// <param name="position">Position to check in world space</param>
         /// <returns>True if empty, false if one or more entities occupy the same space</returns>
+
         public bool CheckClear(Vector2 position)
         {
             return entities.Find(x => x.position.compareTo(position) == 0) == null;
@@ -51,6 +56,7 @@ namespace ComsciProject.Engine
         /// <param name="position">Position to check in world space</param>
         /// <param name="firstEntity">value of first entity</param>
         /// <returns></returns>
+
         public bool CheckClear(Vector2 position, out Entity firstEntity)
         {
             firstEntity = entities.Find(x => x.position.compareTo(position) == 0);
@@ -62,6 +68,7 @@ namespace ComsciProject.Engine
         /// <param name="position"></param>
         /// <param name="entities"></param>
         /// <returns></returns>
+
         public bool CheckClear(Vector2 position, out Entity[] entities)
         {
             entities = this.entities.FindAll(x => x.position.compareTo(position) == 0).ToArray();
@@ -72,6 +79,7 @@ namespace ComsciProject.Engine
         /// </summary>
         /// <param name="position">Position to be tested</param>
         /// <returns>True if the position is in the worlds bounds, false if otherwise</returns>
+
         public bool positionInBounds(Vector2 position)
         {
             if (position.x < 0 || position.y < 0 ||
@@ -79,6 +87,7 @@ namespace ComsciProject.Engine
                 return false;
             return true;
         }
+
         public List<Entity> entities;
     }
 }
