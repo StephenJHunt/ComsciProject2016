@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComsciProject"
         mc:Ignorable="d"
-        Title="SnakeGameDisplay" Height="336.135" Width="588.235" SizeToContent="WidthAndHeight" FontSize="14.667" FontFamily="Consolas">
+        Title="SnakeGameDisplay" Height="336.135" Width="588.235" SizeToContent="WidthAndHeight" FontSize="14.667" FontFamily="Consolas" Closed="Window_Closed">
     <Grid>
         <Label x:Name="Display" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Height="305" Width="580" Background="#FF020202" Foreground="#FFFBF7F7"/>
 
