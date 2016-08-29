@@ -8,14 +8,12 @@ namespace ComsciProject.Engine.Example
 {
     public class ExampleLevel : Level
     {
-
         public ExampleLevel()
         {
             xBoundry = 10;
             yBoundry = 8;
             entities = new List<Entity>();
         }
-
         public override void InstantiateFirstFrameEntities()
         {
             //make walls
@@ -23,7 +21,6 @@ namespace ComsciProject.Engine.Example
             //add the player entity
             addPlayer();
         }
-
         private void makeWalls()//good practice to keep methods the public doesnt need - private 
         {
             //fill the edges of the world with walls
@@ -51,7 +48,6 @@ namespace ComsciProject.Engine.Example
                 }
             }
         }
-
         private void addPlayer()
         {
             Engine.SpawnEntity(new ExamplePlayer(), new Vector2(xBoundry / 2, yBoundry / 2));

@@ -25,10 +25,5 @@ namespace ComsciProject
             Engine.Engine.currentLevel = new ExampleLevel();
             Engine.Engine.Initialize();
         }
-
-        private void Window_Closed(object sender, EventArgs e)
-        {
-            Engine.Engine.Close();
-        }
     }
 }
