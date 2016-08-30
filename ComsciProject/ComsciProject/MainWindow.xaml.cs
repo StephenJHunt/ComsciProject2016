@@ -74,14 +74,23 @@ namespace ComsciProject
             Engine.Engine.renderComplete = true;
         }
 
+
+
         private void PacMan_Click(object sender, RoutedEventArgs e)
         {
             display = new SnakeGameDisplay();
             display.Show();
             Timer = new System.Windows.Threading.DispatcherTimer();
-            Timer.Interval = TimeSpan.FromMilliseconds(100);
+            Timer.Interval = TimeSpan.FromSeconds(1);
             Timer.IsEnabled = true;
-            Timer.Tick += dispatcherTimer_Tick;
+            Timer.Tick += PacManDispatcherTimer_Tick;
+        }
+
+        private void PacManDispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            display.Display.Content = Engine.Engine.LastFrame;
+            Debug.Log(display.Display.Content);
+            Engine.Engine.renderComplete = true;
         }
     }
 }

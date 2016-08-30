@@ -19,5 +19,10 @@ namespace ComsciProject.Engine.PacMan
         {
             Move(new Vector2(2, 0));
         }
+
+        public override void LateUpdate()
+        {
+            Move(new Vector2(2, 0));
+        }
     }
 }

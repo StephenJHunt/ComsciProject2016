@@ -31,7 +31,7 @@ namespace ComsciProject.Engine.PacMan
             //string array representing map
             //Way easier than doing each char separately
             //Double x length just to retain ratio - TODO make sure x movement is double y movement
-            string[] display =
+            string[] map =
             {
                 "######################################",
                 "##* * * * * * * * ##* * * * * * * * ##",
@@ -59,13 +59,13 @@ namespace ComsciProject.Engine.PacMan
             //creating entities
             //still need to work on this for food to work properly
             //need to fix slowness
-            for (int y = 0; y < display.Length; y++)
+            for (int y = 0; y < map.Length; y++)
             {
-                for (int x = 0; x < display[y].Length; x++)
+                for (int x = 0; x < map[y].Length; x++)
                 {
-                    if (display[y][x] != ' ')
+                    if (map[y][x] != ' ' && map[y][x] != '*')
                     {
-                        Engine.SpawnEntity(new PacWalls(display[y][x]), new Vector2(x, y));
+                        Engine.SpawnEntity(new PacWalls(map[y][x]), new Vector2(x, y));
                     }
                 }
             }
