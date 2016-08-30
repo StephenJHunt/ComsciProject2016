@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ComsciProject.Engine.Example;
+using ComsciProject.Engine.PacMan;
 namespace ComsciProject
 {
     /// <summary>
@@ -22,7 +23,8 @@ namespace ComsciProject
         public SnakeGameDisplay()
         {
             InitializeComponent();
-            Engine.Engine.currentLevel = new ExampleLevel();
+            //change definition here to change games
+            Engine.Engine.currentLevel = new PacManLevel();
             Engine.Engine.Initialize();
         }
 
