@@ -63,11 +63,14 @@
     <Compile Include="Debug.cs" />
     <Compile Include="Engine\Engine.cs" />
     <Compile Include="Engine\Entity.cs" />
-    <Compile Include="Engine\Example\ExampleEntity.cs" />
     <Compile Include="Engine\Example\ExampleLevel.cs" />
+    <Compile Include="Engine\Example\ExamplePlayer.cs" />
     <Compile Include="Engine\Example\ExampleWall.cs" />
     <Compile Include="Engine\Input.cs" />
     <Compile Include="Engine\Level.cs" />
+    <Compile Include="Engine\PacMan\PacManPlayer.cs" />
+    <Compile Include="Engine\PacMan\PacWalls.cs" />
+    <Compile Include="Engine\PacMan\PacManLevel.cs" />
     <Compile Include="Engine\Vector2.cs" />
     <Compile Include="SnakeGameDisplay.xaml.cs">
       <DependentUpon>SnakeGameDisplay.xaml</DependentUpon>
@@ -124,6 +127,7 @@
   <ItemGroup>
     <Resource Include="arcade84.jpg" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

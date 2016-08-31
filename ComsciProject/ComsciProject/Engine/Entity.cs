@@ -9,6 +9,7 @@ namespace ComsciProject.Engine
     /// <summary>
     /// Describes a 'GameObject', an object which is present in the game world.
     /// </summary>
+
     public abstract class Entity
     {
         /// <summary>
@@ -40,6 +41,7 @@ namespace ComsciProject.Engine
         /// Move the entity the specified Cartesian Vector
         /// </summary>
         /// <param name="translation">A Cartesian Vector describing the required translation</param>
+
         public void Move(Vector2 translation)
         {
             position.x += translation.x;
@@ -50,6 +52,7 @@ namespace ComsciProject.Engine
         /// </summary>
         /// <param name="direction">Direction to move in</param>
         /// <param name="distance">Distance in units to move</param>
+
         public void MoveLinear(Direction direction, int distance)
         {
             switch(direction)
@@ -81,6 +84,7 @@ namespace ComsciProject.Engine
         /// <summary>
         /// Called when the Entity is added to the game world
         /// </summary>
+
         public virtual void Init()
         {
 
@@ -88,6 +92,7 @@ namespace ComsciProject.Engine
         /// <summary>
         /// Called every Frame
         /// </summary>
+
         public virtual void Update()
         {
             
@@ -95,6 +100,7 @@ namespace ComsciProject.Engine
         /// <summary>
         /// Called every frame after Update()
         /// </summary>
+
         public virtual void LateUpdate()
         {
            

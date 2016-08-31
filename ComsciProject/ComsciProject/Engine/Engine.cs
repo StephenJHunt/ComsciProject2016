@@ -50,9 +50,11 @@ namespace ComsciProject.Engine
             mainThread.Start();
             currentLevel?.InstantiateFirstFrameEntities();
         }
+
         /// <summary>
         /// End the game engine loop, closing all relevant threads
         /// </summary>
+        /// 
         public static void Close()
         {
             currentLevel = null;
@@ -74,6 +76,7 @@ namespace ComsciProject.Engine
         /// <summary>
         /// This method is run on the mainThread, it runs the entire gameloop logic, including Init(), Update() and LateUpdate() - on all entities in the currentLevel
         /// </summary>
+        
         private static void GameUpdate()
         {
             while (true)
@@ -109,6 +112,7 @@ namespace ComsciProject.Engine
         /// <summary>
         /// The last update frame, the UI will render this
         /// </summary>
+        
         public static string LastFrame
         {
             get;
@@ -153,6 +157,7 @@ namespace ComsciProject.Engine
         /// <summary>
         /// Run Init on entities added in the last frame and add them to the gameworld
         /// </summary>
+
         private static void InitNewEntities()
         {
             //if there are entities to instantiate
@@ -179,6 +184,7 @@ namespace ComsciProject.Engine
         /// <param name="e">The entity to add</param>
         /// <param name="p">The desired position of the entity</param>
         /// <returns>A reference to the entity -- NOTE: THE ENTITY IS NOT ADDED TO THE GAMEWORLD UNTIL THE START OF THE NEXT FRAME</returns>
+
         public static Entity SpawnEntity(Entity e, Vector2 p)
         {
             //make sure the game world exists
