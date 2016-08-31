@@ -27,6 +27,7 @@ namespace ComsciProject
             //change definition here to change games
             //Engine.Engine.currentLevel = new ExampleLevel();
             Engine.Engine.currentLevel = new PacManLevel();
+            Engine.Engine.maxUpdateRate = 10f;//10 updates per second are run
             Engine.Engine.Initialize();
         }
 

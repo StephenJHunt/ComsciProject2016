@@ -13,6 +13,8 @@ namespace ComsciProject.Engine.PacMan
             xBoundry = 38;
             yBoundry = 21;
             entities = new List<Entity>();
+            //What you need to do is set the game update rate so we have
+            //a fixed game speed (default is super slow)
         }
 
         public override void InstantiateFirstFrameEntities()

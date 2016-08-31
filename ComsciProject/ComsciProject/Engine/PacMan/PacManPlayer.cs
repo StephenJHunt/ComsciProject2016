@@ -22,7 +22,11 @@ namespace ComsciProject.Engine.PacMan
 
         public override void LateUpdate()
         {
-            Move(new Vector2(1, 0));
+            //Move(new Vector2(1, 0)); <- this makes it move 2 times in one 'update'
+            //this is not desired behaviour, rather use
+            //Move(new Vector2(2,0));
+            //or if you're fancy
+            //Move(Vector2.right*2);
         }
     }
 }
