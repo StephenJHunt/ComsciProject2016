@@ -24,7 +24,8 @@ namespace ComsciProject
         {
             InitializeComponent();
             //change definition here to change games
-            Engine.Engine.currentLevel = new ExampleLevel();
+            //Engine.Engine.currentLevel = new ExampleLevel();
+            Engine.Engine.currentLevel = new PacManLevel();
             Engine.Engine.Initialize();
         }
 
