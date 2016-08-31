@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ComsciProject.Engine.Example;
 using ComsciProject.Engine.PacMan;
+using ComsciProject.Engine;
 namespace ComsciProject
 {
     /// <summary>
@@ -32,6 +33,11 @@ namespace ComsciProject
         private void Window_Closed(object sender, EventArgs e)
         {
             Engine.Engine.Close();
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            //Input.Initialize(SnakeWindow.KeyDown);
         }
     }
 }

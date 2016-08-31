@@ -17,12 +17,12 @@ namespace ComsciProject.Engine.PacMan
         //Moves very slowly, not sure why
         public override void Update()
         {
-            Move(new Vector2(2, 0));
+            Move(new Vector2(1, 0));
         }
 
         public override void LateUpdate()
         {
-            Move(new Vector2(2, 0));
+            Move(new Vector2(1, 0));
         }
     }
 }
