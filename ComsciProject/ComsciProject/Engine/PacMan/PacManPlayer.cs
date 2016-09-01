@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 namespace ComsciProject.Engine.PacMan
 {
     //Controllable character
@@ -14,10 +14,15 @@ namespace ComsciProject.Engine.PacMan
             appearance = 'C';
             descName = "Pac-Man";
         }
-        //Moves very slowly, not sure why
+        //Remove the cheap code here, its to test and show example of Input class
+        bool isLeft = false;
         public override void Update()
         {
-            Move(new Vector2(1, 0));
+            if (Input.getLastKeypress() == Key.Left)
+                isLeft = true;
+            else if (Input.getLastKeypress() == Key.Right)
+                isLeft = false;
+            Move(isLeft ? Vector2.left : Vector2.right); //if left, move left, else right
         }
 
         public override void LateUpdate()

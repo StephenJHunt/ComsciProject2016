@@ -38,7 +38,7 @@ namespace ComsciProject
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            //Input.Initialize(SnakeWindow.KeyDown);
+            Input.ReceiveKey(e);
         }
     }
 }

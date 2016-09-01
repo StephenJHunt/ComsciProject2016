@@ -90,6 +90,8 @@ namespace ComsciProject.Engine
                 }
                 renderComplete = false;
                 Debug.Log("GameUpdate Begin(" + updateNum++ + ")");
+                //Get the last input and push it to the input class' keypress var
+                Input.EngineRenderFrame();
                 //check items to run init on
                 InitNewEntities();
                 //run update
