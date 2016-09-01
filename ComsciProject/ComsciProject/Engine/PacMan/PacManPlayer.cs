@@ -17,12 +17,29 @@ namespace ComsciProject.Engine.PacMan
         //Remove the cheap code here, its to test and show example of Input class
         bool isLeft = false;
         public override void Update()
-        {
-            if (Input.getLastKeypress() == Key.Left)
-                isLeft = true;
-            else if (Input.getLastKeypress() == Key.Right)
-                isLeft = false;
-            Move(isLeft ? Vector2.left*2 : Vector2.right*2); //if left, move left, else right
+        {   //Previous implementation of input:
+            //if (Input.getLastKeypress() == Key.Left)
+            //    isLeft = true;
+            //else if (Input.getLastKeypress() == Key.Right)
+            //    isLeft = false;
+            //Move(isLeft ? Vector2.left*2 : Vector2.right*2); //if left, move left, else right
+
+            //refined input
+            switch(Input.getLastKeypress())
+            {
+                case Key.Left:
+                    Move(Vector2.left * 2);
+                    break;
+                case Key.Right:
+                    Move(Vector2.right * 2);
+                    break;
+                case Key.Up:
+                    Move(Vector2.up);
+                    break;
+                case Key.Down:
+                    Move(Vector2.down);
+                    break;
+            } 
         }
 
         public override void LateUpdate()
