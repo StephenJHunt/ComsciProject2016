@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace ComsciProject.Engine
 {
@@ -12,24 +12,20 @@ namespace ComsciProject.Engine
     public sealed class Input
     {
 
-        public static void Initialize(KeyEventHandler keyHandler)
+        public static void ReceiveKey(KeyEventArgs e)
         {
-            KeyDownEvent = keyHandler;
-            KeyDownEvent += OnKeyDown;
-        }
-        private static KeyEventHandler KeyDownEvent;
-
-        private static void OnKeyDown(object sender, KeyEventArgs e)
-        {
-            lastKeypress = e.KeyCode;
-            //when a key is pressed
+            lastKeypress = e.Key;
         }
 
-        private static volatile Keys lastKeypress;//NEED TO MAKE THIS THREAD SAFE
-
-        public static Keys getLastKeypress()//VERY UNSAFE FOR THREAD
+        private static volatile Key lastKeypress;//NEED TO MAKE THIS THREAD SAFE
+        private static volatile Key frameKeypress;
+        public static Key getLastKeypress()//VERY UNSAFE FOR MULTITHREADING,BUT YOLO
         {
-            return lastKeypress;
+            return frameKeypress;
+        }
+        public static void EngineRenderFrame()
+        {
+            frameKeypress = lastKeypress;
         }
     }
 }

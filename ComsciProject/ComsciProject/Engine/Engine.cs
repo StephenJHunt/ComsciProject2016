@@ -34,10 +34,11 @@ namespace ComsciProject.Engine
         /// Thread on which the game loop runs
         /// </summary>
         public static Thread mainThread;
+        private static bool gameRunning = false;
         /// <summary>
         /// Maximum number of times per second an update may be called
         /// </summary>
-        public static float maxUpdateRate = 2f;
+        public static float maxUpdateRate = 10f;
         /// <summary>
         /// Start the game engine loop
         /// </summary>
@@ -46,8 +47,9 @@ namespace ComsciProject.Engine
             if (mainThread == null)
                 mainThread = new Thread(GameUpdate);
             entitiesToInstantiate = new Queue<Entity>();
-            LastFrame = "First Frame";
+            LastFrame = "Loading...";//just so we know issues
             mainThread.Start();
+            gameRunning = true;
             currentLevel?.InstantiateFirstFrameEntities();
         }
 
@@ -57,11 +59,9 @@ namespace ComsciProject.Engine
         /// 
         public static void Close()
         {
-            currentLevel = null;
-            entitiesToInstantiate = null;
+            gameRunning = false;
             if (mainThread != null)
             {
-                mainThread.Abort();
                 mainThread = null;
             }
         }
@@ -79,7 +79,7 @@ namespace ComsciProject.Engine
         
         private static void GameUpdate()
         {
-            while (true)
+            while (gameRunning)
             {
                 while (!renderComplete)//gameThread waits for render to complete
                     Thread.Sleep(1);
@@ -90,6 +90,8 @@ namespace ComsciProject.Engine
                 }
                 renderComplete = false;
                 Debug.Log("GameUpdate Begin(" + updateNum++ + ")");
+                //Get the last input and push it to the input class' keypress var
+                Input.EngineRenderFrame();
                 //check items to run init on
                 InitNewEntities();
                 //run update
@@ -106,8 +108,12 @@ namespace ComsciProject.Engine
                 LastFrame = RenderWorld();
                 //invoke a render delegate on the UI
                 //sleep until need to update again
-                Thread.Sleep((int)(1000 / maxUpdateRate));//this should technically be the difference since frame last rendered and this render in ms, but will be fine for now.
+                //Thread.Sleep((int)(1000 / maxUpdateRate));//this should technically be the difference since frame last rendered and this render in ms, but will be fine for now.
             }
+            Debug.Log("Game Thread Exiting - Cleaning up references (" + updateNum + " updates)");
+            currentLevel = null;
+            entitiesToInstantiate = null;
+            Debug.Log("Game Thread Ended");
         }
         /// <summary>
         /// The last update frame, the UI will render this
@@ -136,7 +142,7 @@ namespace ComsciProject.Engine
             //add entities to it
             foreach (Entity e in currentLevel.entities)
             {
-                Debug.Log(e.instanceID + "("+e.descName+") being rendered");
+                //Debug.Log(e.instanceID + "("+e.descName+") being rendered");
                 if(currentLevel.positionInBounds(new Vector2(e.position.x,e.position.y)))
                     worldRender[e.position.y][e.position.x] = e.appearance;
                 else

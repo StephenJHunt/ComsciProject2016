@@ -62,7 +62,7 @@ namespace ComsciProject
             display = new SnakeGameDisplay();
             display.Show();
             Timer = new System.Windows.Threading.DispatcherTimer();
-            Timer.Interval = TimeSpan.FromMilliseconds(100);
+            Timer.Interval = TimeSpan.FromMilliseconds(1000/Engine.Engine.maxUpdateRate);//this blocks our game thread, must be changed to suit the game frame rate
             Timer.IsEnabled = true;
             Timer.Tick += dispatcherTimer_Tick;
         }
@@ -70,7 +70,6 @@ namespace ComsciProject
         private void dispatcherTimer_Tick(object sender, EventArgs e)
         {
             display.Display.Content = Engine.Engine.LastFrame;
-            Debug.Log(display.Display.Content);
             Engine.Engine.renderComplete = true;
         }
 
@@ -81,7 +80,7 @@ namespace ComsciProject
             display = new SnakeGameDisplay();
             display.Show();
             Timer = new System.Windows.Threading.DispatcherTimer();
-            Timer.Interval = TimeSpan.FromSeconds(1);
+            Timer.Interval = TimeSpan.FromMilliseconds(1000 / Engine.Engine.maxUpdateRate);//this blocks our game thread, must be changed to suit the game frame rate
             Timer.IsEnabled = true;
             Timer.Tick += PacManDispatcherTimer_Tick;
         }
@@ -89,7 +88,6 @@ namespace ComsciProject
         private void PacManDispatcherTimer_Tick(object sender, EventArgs e)
         {
             display.Display.Content = Engine.Engine.LastFrame;
-            Debug.Log(display.Display.Content);
             Engine.Engine.renderComplete = true;
         }
     }

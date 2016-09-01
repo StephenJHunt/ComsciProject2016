@@ -31,6 +31,11 @@ namespace ComsciProject.Engine
         public static readonly Vector2 left = new Vector2(-1, 0);
         public static readonly Vector2 right = new Vector2(1, 0);
 
+        public static Vector2 operator * (Vector2 a, int b)
+        {
+            return new Vector2(a.x * b, a.y * b);
+        }
+
         public static bool operator == (Vector2 a, Vector2 b)
         {
             //check its not the same object
