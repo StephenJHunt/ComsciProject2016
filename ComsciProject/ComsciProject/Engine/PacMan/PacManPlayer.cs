@@ -22,7 +22,7 @@ namespace ComsciProject.Engine.PacMan
                 isLeft = true;
             else if (Input.getLastKeypress() == Key.Right)
                 isLeft = false;
-            Move(isLeft ? Vector2.left : Vector2.right); //if left, move left, else right
+            Move(isLeft ? Vector2.left*2 : Vector2.right*2); //if left, move left, else right
         }
 
         public override void LateUpdate()
