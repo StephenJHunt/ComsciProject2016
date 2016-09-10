@@ -9,6 +9,7 @@ namespace ComsciProject.Engine.Breakout
 
     public class BreakoutLevel : Level
     {
+
         public List<Entity> paddle = new List<Entity>();
         public BreakoutLevel()
         {
@@ -19,16 +20,16 @@ namespace ComsciProject.Engine.Breakout
 
         public override void InstantiateFirstFrameEntities()
         {
-            makeWalls();
             makePaddle();
+            makeWalls();
         }
 
         private void makePaddle()
         {
             //spawning each paddle piece. TODO adjust positions
-            Engine.SpawnEntity(new BreakoutPaddle(), new Vector2(10, 10));
-            Engine.SpawnEntity(new BreakoutPaddle(), new Vector2(11, 10));
-            Engine.SpawnEntity(new BreakoutPaddle(), new Vector2(12, 10));
+            Engine.SpawnEntity(new BreakoutPaddle(), new Vector2(10, 16));
+            Engine.SpawnEntity(new BreakoutPaddle(), new Vector2(11, 16));
+            Engine.SpawnEntity(new BreakoutPaddle(), new Vector2(12, 16));
         }
 
         //Creating walls, ripped from example

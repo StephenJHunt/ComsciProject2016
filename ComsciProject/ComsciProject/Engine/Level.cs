@@ -88,6 +88,10 @@ namespace ComsciProject.Engine
             return true;
         }
 
-        public List<Entity> entities;
+        public List<Entity> entities
+        {
+            get;
+            protected set;
+        }
     }
 }
