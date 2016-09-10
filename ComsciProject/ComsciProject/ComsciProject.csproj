@@ -61,6 +61,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Debug.cs" />
+    <Compile Include="Engine\Breakout\BreakoutWalls.cs" />
+    <Compile Include="Engine\Breakout\BreakoutLevel.cs" />
+    <Compile Include="Engine\Breakout\BreakoutPaddle.cs" />
     <Compile Include="Engine\Engine.cs" />
     <Compile Include="Engine\Entity.cs" />
     <Compile Include="Engine\Example\ExampleLevel.cs" />
@@ -115,6 +118,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
