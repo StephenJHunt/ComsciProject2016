@@ -11,8 +11,8 @@ namespace ComsciProject.Engine.Example
 
         public ExampleLevel()
         {
-            xBoundry = 10;
-            yBoundry = 8;
+            xBoundry = 50;
+            yBoundry = 40;
             entities = new List<Entity>();
         }
 

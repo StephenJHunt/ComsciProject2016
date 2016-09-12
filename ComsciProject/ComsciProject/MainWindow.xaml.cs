@@ -62,7 +62,7 @@ namespace ComsciProject
             display = new SnakeGameDisplay();
             display.Show();
             Timer = new System.Windows.Threading.DispatcherTimer();
-            Timer.Interval = TimeSpan.FromMilliseconds(1000/Engine.Engine.maxUpdateRate);//this blocks our game thread, must be changed to suit the game frame rate
+            Timer.Interval = TimeSpan.FromMilliseconds(1000 / Engine.Engine.maxUpdateRate);//this blocks our game thread, must be changed to suit the game frame rate
             Timer.IsEnabled = true;
             Timer.Tick += dispatcherTimer_Tick;
         }

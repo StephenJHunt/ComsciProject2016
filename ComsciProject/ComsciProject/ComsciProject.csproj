@@ -60,6 +60,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BreakoutDisplay.xaml.cs">
+      <DependentUpon>BreakoutDisplay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Debug.cs" />
     <Compile Include="Engine\Breakout\BreakoutWalls.cs" />
     <Compile Include="Engine\Breakout\BreakoutLevel.cs" />
@@ -74,7 +77,13 @@
     <Compile Include="Engine\PacMan\PacManPlayer.cs" />
     <Compile Include="Engine\PacMan\PacWalls.cs" />
     <Compile Include="Engine\PacMan\PacManLevel.cs" />
+    <Compile Include="Engine\Pong\PongLevel.cs" />
+    <Compile Include="Engine\Pong\PongPaddle.cs" />
+    <Compile Include="Engine\Pong\PongWalls.cs" />
     <Compile Include="Engine\Vector2.cs" />
+    <Compile Include="PongDisplay.xaml.cs">
+      <DependentUpon>PongDisplay.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SnakeGameDisplay.xaml.cs">
       <DependentUpon>SnakeGameDisplay.xaml</DependentUpon>
     </Compile>
@@ -83,6 +92,10 @@
     <Compile Include="SnakeGame\Snake.cs" />
     <Compile Include="SnakeGame\SnakeHead.cs" />
     <Compile Include="SnakeGame\SnakeWorld.cs" />
+    <Page Include="BreakoutDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -95,6 +108,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PongDisplay.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SnakeGameDisplay.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
