@@ -24,16 +24,19 @@ namespace ComsciProject
         public PongDisplay()
         {
             InitializeComponent();
+            Engine.Engine.currentLevel = new PongLevel();
+            Engine.Engine.maxUpdateRate = 10f;//10 updates per second are run
+            Engine.Engine.Initialize();
         }
         
         private void Window_Closed_1(object sender, EventArgs e)
         {
-
+            Engine.Engine.Close();
         }
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-
+            Input.ReceiveKey(e);
         }
     }
 }

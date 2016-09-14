@@ -56,29 +56,32 @@ namespace ComsciProject
             //}
         }
         public static MainWindow instance;//FOR TETRIS: use left mouse for left rotation, right mouse for right rotation, middle to speed up
-        private static SnakeGameDisplay display;
+        private static SnakeGameDisplay Snakedisplay;
+        //private static PacmanDisplay Pacmandisplay;
+        private static BreakoutDisplay Breakoutdisplay;
+        private static PongDisplay Pongdisplay;
         private void Snek_Click(object sender, RoutedEventArgs e)
         {
-            display = new SnakeGameDisplay();
-            display.Show();
+            Snakedisplay = new SnakeGameDisplay();
+            Snakedisplay.Show();
             Timer = new System.Windows.Threading.DispatcherTimer();
             Timer.Interval = TimeSpan.FromMilliseconds(1000 / Engine.Engine.maxUpdateRate);//this blocks our game thread, must be changed to suit the game frame rate
             Timer.IsEnabled = true;
-            Timer.Tick += dispatcherTimer_Tick;
+            Timer.Tick += SnakeTimer_Tick;
         }
 
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        private void SnakeTimer_Tick(object sender, EventArgs e)
         {
-            display.Display.Content = Engine.Engine.LastFrame;
+            Snakedisplay.Display.Content = Engine.Engine.LastFrame;
             Engine.Engine.renderComplete = true;
         }
 
 
 
         private void PacMan_Click(object sender, RoutedEventArgs e)
-        {
-            display = new SnakeGameDisplay();
-            display.Show();
+        {//TODO add pacman display window
+            //Pacmandisplay = new SnakeGameDisplay();
+            //Pacmandisplay.Show();
             Timer = new System.Windows.Threading.DispatcherTimer();
             Engine.Engine.maxUpdateRate = 5;
             Timer.Interval = TimeSpan.FromMilliseconds(1000 / Engine.Engine.maxUpdateRate);//this blocks our game thread, must be changed to suit the game frame rate
@@ -88,7 +91,39 @@ namespace ComsciProject
 
         private void PacManDispatcherTimer_Tick(object sender, EventArgs e)
         {
-            display.Display.Content = Engine.Engine.LastFrame;
+            //display.Display.Content = Engine.Engine.LastFrame;
+            Engine.Engine.renderComplete = true;
+        }
+
+        private void Breakout_Click(object sender, RoutedEventArgs e)
+        {
+            Breakoutdisplay = new BreakoutDisplay;
+            Breakoutdisplay.Show();
+            Timer = new System.Windows.Threading.DispatcherTimer();
+            Timer.Interval = TimeSpan.FromMilliseconds(1000 / Engine.Engine.maxUpdateRate);//this blocks our game thread, must be changed to suit the game frame rate
+            Timer.IsEnabled = true;
+            Timer.Tick += BreakoutTimer_Tick;
+        }
+
+        private void BreakoutTimer_Tick(object sender, EventArgs e)
+        {
+            Breakoutdisplay.lblDisplay.Content = Engine.Engine.LastFrame;
+            Engine.Engine.renderComplete = true;
+        }
+
+        private void Pong_Click(object sender, RoutedEventArgs e)
+        {
+            Pongdisplay = new PongDisplay;
+            Pongdisplay.Show();
+            Timer = new System.Windows.Threading.DispatcherTimer();
+            Timer.Interval = TimeSpan.FromMilliseconds(1000 / Engine.Engine.maxUpdateRate);//this blocks our game thread, must be changed to suit the game frame rate
+            Timer.IsEnabled = true;
+            Timer.Tick += PongTimer_Tick;
+        }
+
+        private void PongTimer_Tick(object sender, EventArgs e)
+        {
+            Pongdisplay.lblDisplay.Content = Engine.Engine.LastFrame;
             Engine.Engine.renderComplete = true;
         }
     }
