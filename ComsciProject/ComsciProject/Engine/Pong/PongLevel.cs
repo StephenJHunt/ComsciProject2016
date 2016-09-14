@@ -8,5 +8,11 @@ namespace ComsciProject.Engine.Pong
 {
     class PongLevel:Level
     {
+        public PongLevel()
+        {
+            this.xBoundry = 50;
+            this.yBoundry = 40;
+            entities = new List<Entity>();
+        }
     }
 }
