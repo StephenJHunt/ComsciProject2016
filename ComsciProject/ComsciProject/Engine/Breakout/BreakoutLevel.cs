@@ -21,7 +21,25 @@ namespace ComsciProject.Engine.Breakout
         public override void InstantiateFirstFrameEntities()
         {
             makePaddle();
+            makeBall();
             makeWalls();
+            makeBricks();
+        }
+
+        private void makeBricks()
+        {
+            for (int j = 1; j < 5; j++)
+            {
+                for (int k = 1; k < 19; k++)
+                {
+                    Engine.SpawnEntity(new BreakoutBricks(), new Vector2(k, j));
+                }
+            }
+        }
+
+        public void makeBall()
+        {
+            Engine.SpawnEntity(new BreakoutBall(), new Vector2(15,5));
         }
 
         private void makePaddle()

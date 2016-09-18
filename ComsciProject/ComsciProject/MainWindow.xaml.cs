@@ -97,7 +97,7 @@ namespace ComsciProject
 
         private void Breakout_Click(object sender, RoutedEventArgs e)
         {
-            Breakoutdisplay = new BreakoutDisplay;
+            Breakoutdisplay = new BreakoutDisplay();
             Breakoutdisplay.Show();
             Timer = new System.Windows.Threading.DispatcherTimer();
             Timer.Interval = TimeSpan.FromMilliseconds(1000 / Engine.Engine.maxUpdateRate);//this blocks our game thread, must be changed to suit the game frame rate
@@ -113,7 +113,7 @@ namespace ComsciProject
 
         private void Pong_Click(object sender, RoutedEventArgs e)
         {
-            Pongdisplay = new PongDisplay;
+            Pongdisplay = new PongDisplay();
             Pongdisplay.Show();
             Timer = new System.Windows.Threading.DispatcherTimer();
             Timer.Interval = TimeSpan.FromMilliseconds(1000 / Engine.Engine.maxUpdateRate);//this blocks our game thread, must be changed to suit the game frame rate

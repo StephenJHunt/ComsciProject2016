@@ -36,6 +36,10 @@ namespace ComsciProject.Engine
         /// Dictates if an Entity has been 'destroyed', as references to it may persist even after being removed from the game world
         /// </summary>
         public bool destroyed = false;
+        /// <summary>
+        /// Vector that describes the direction the entity is moving in
+        /// </summary>
+        public Vector2 direction;
         #region Helper Methods
         /// <summary>
         /// Move the entity the specified Cartesian Vector
