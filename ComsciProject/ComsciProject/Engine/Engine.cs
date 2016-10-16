@@ -202,12 +202,5 @@ namespace ComsciProject.Engine
             }
             return null;
         }
-
-        public static void Destroy(Entity e)
-        {
-            currentLevel.entities.Remove(e);
-            e.destroyed = true;
-            e.enabled = false;
-        }
     }
 }

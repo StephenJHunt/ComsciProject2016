@@ -65,6 +65,9 @@ namespace ComsciProject.Engine.Breakout
                     if (move)
                         Move(Vector2.right);
                     break;
+                case Key.CapsLock:
+                    move = false;
+                    break;
             }
         }
     }

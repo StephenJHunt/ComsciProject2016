@@ -25,7 +25,7 @@ namespace ComsciProject
         {
             InitializeComponent();
             Engine.Engine.currentLevel = new BreakoutLevel();
-            Engine.Engine.maxUpdateRate = 10f;//10 updates per second are run
+            Engine.Engine.maxUpdateRate = 8f;//8 updates per second are run
             Engine.Engine.Initialize();
         }
 
@@ -37,6 +37,11 @@ namespace ComsciProject
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             Input.ReceiveKey(e);
+        }
+
+        private void Window_KeyUp(object sender, KeyEventArgs e)
+        {
+            Input.ReceiveKeyUp(e);
         }
     }
 }

@@ -68,7 +68,7 @@
     <Compile Include="Engine\Breakout\BreakoutWalls.cs" />
     <Compile Include="Engine\Breakout\BreakoutLevel.cs" />
     <Compile Include="Engine\Breakout\BreakoutPaddle.cs" />
-    <Compile Include="Engine\Breakout\Class1.cs" />
+    <Compile Include="Engine\Breakout\BreakoutBall.cs" />
     <Compile Include="Engine\Engine.cs" />
     <Compile Include="Engine\Entity.cs" />
     <Compile Include="Engine\Example\ExampleLevel.cs" />
@@ -82,6 +82,11 @@
     <Compile Include="Engine\Pong\PongLevel.cs" />
     <Compile Include="Engine\Pong\PongPaddle.cs" />
     <Compile Include="Engine\Pong\PongWalls.cs" />
+    <Compile Include="Engine\Snake\Food.cs" />
+    <Compile Include="Engine\Snake\SnakeBody.cs" />
+    <Compile Include="Engine\Snake\SnakeHead.cs" />
+    <Compile Include="Engine\Snake\SnakeLevel.cs" />
+    <Compile Include="Engine\Snake\SnakeWalls.cs" />
     <Compile Include="Engine\Vector2.cs" />
     <Compile Include="PongDisplay.xaml.cs">
       <DependentUpon>PongDisplay.xaml</DependentUpon>

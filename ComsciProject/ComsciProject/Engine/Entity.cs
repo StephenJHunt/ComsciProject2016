@@ -46,6 +46,14 @@ namespace ComsciProject.Engine
         /// </summary>
         /// <param name="translation">A Cartesian Vector describing the required translation</param>
 
+
+        public void Destroy()
+        {
+            appearance = ' ';
+            enabled = false;
+            destroyed = true;
+        }
+
         public void Move(Vector2 translation)
         {
             position.x += translation.x;

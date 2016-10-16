@@ -25,14 +25,6 @@
             </Button.Background>
         </Button>
         <Label x:Name="Welcome" Content="&#x9;     Welcome To The Virtual Arcade!" HorizontalAlignment="Left" Margin="10,19,0,0" VerticalAlignment="Top" Width="542" FontStyle="Italic" FontWeight="Bold" Foreground="#FFE3F901" FontSize="20"/>
-        <Button x:Name="SpaceInvaders" Content="Play Space Invaders" HorizontalAlignment="Left" Margin="216,162,0,0" VerticalAlignment="Top" Width="131" Height="42">
-            <Button.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFFFFEFE" Offset="0.007"/>
-                    <GradientStop Color="#FF31BB12" Offset="1"/>
-                </LinearGradientBrush>
-            </Button.Background>
-        </Button>
         <Button x:Name="Pong" Content="Play Pong" HorizontalAlignment="Left" Margin="456,162,0,0" VerticalAlignment="Top" Width="96" Height="42" Click="Pong_Click">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

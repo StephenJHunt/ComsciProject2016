@@ -107,7 +107,7 @@ namespace ComsciProject
 
         private void BreakoutTimer_Tick(object sender, EventArgs e)
         {
-            Breakoutdisplay.lblDisplay.Content = Engine.Engine.LastFrame;
+            Breakoutdisplay.Display.Content = Engine.Engine.LastFrame;
             Engine.Engine.renderComplete = true;
         }
 

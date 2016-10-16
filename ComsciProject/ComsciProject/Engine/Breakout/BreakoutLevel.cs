@@ -32,7 +32,7 @@ namespace ComsciProject.Engine.Breakout
             {
                 for (int k = 1; k < 19; k++)
                 {
-                    Engine.SpawnEntity(new BreakoutBricks(), new Vector2(k, j));
+                    if ((k + j) % 2 == 0) Engine.SpawnEntity(new BreakoutBricks(), new Vector2(k, j));
                 }
             }
         }

@@ -16,6 +16,10 @@ namespace ComsciProject.Engine
         {
             lastKeypress = e.Key;
         }
+        public static void ReceiveKeyUp(KeyEventArgs e)
+        {
+            lastKeypress = Key.CapsLock;
+        }
 
         private static volatile Key lastKeypress;//NEED TO MAKE THIS THREAD SAFE
         private static volatile Key frameKeypress;

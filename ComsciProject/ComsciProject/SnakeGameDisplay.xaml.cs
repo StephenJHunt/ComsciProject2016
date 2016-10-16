@@ -15,6 +15,7 @@ using ComsciProject.Engine.Example;
 using ComsciProject.Engine.PacMan;
 using ComsciProject.Engine;
 using ComsciProject.Engine.Breakout;
+using ComsciProject.Engine.Snake;
 
 namespace ComsciProject
 {
@@ -28,9 +29,10 @@ namespace ComsciProject
             InitializeComponent();
             //change definition here to change games
             //Engine.Engine.currentLevel = new ExampleLevel();
+            Engine.Engine.currentLevel = new SnakeLevel();
             //Engine.Engine.currentLevel = new PacManLevel();
-            Engine.Engine.currentLevel = new BreakoutLevel();
-            Engine.Engine.maxUpdateRate = 10f;//10 updates per second are run
+            //Engine.Engine.currentLevel = new BreakoutLevel();
+            Engine.Engine.maxUpdateRate = 5f;//8 updates per second are run
             Engine.Engine.Initialize();
         }
 
@@ -42,6 +44,11 @@ namespace ComsciProject
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
             Input.ReceiveKey(e);
+        }
+
+        private void SnakeWindow_KeyUp(object sender, KeyEventArgs e)
+        {
+            Input.ReceiveKeyUp(e);
         }
     }
 }
